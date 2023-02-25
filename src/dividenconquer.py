@@ -33,7 +33,7 @@ def partisibyx(a,i,j):
 def euclidean(a,b,n):
 # mengembalikan jarak euclidean antara a dan b dengan dimensi R^n
     if n == 1:
-        return abs(a[0]-b[0])
+        return (a[0]-b[0])
     else:
         return math.sqrt(euclidean(a,b,n-1)**2 + (a[n-1]-b[n-1])**2)
 
@@ -92,7 +92,7 @@ def closestPair(a,n,dimension):
                     p2 = strip[j]
         return nilai,p1,p2
 
-A = [[2,3],[12,30],[40,50],[5,1],[12,10],[3,4],[1,1]]
+A = [[2,3],[12,30],[40,50],[5,1],[12,10],[1,1]]
 sortbyx(A,0,len(A)-1)
 nilai,p,q = closestPair(A,len(A),2)
 print(nilai,p,q)
