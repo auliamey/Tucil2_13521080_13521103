@@ -7,7 +7,7 @@ import time
 n = int(input("Masukkan jumlah titik : "))
 dimensi = int(input("Masukkan dimensi titik : "))
 array = randomPoint(n,dimensi)
-array = sortbyx(array,0,n-1)
+sortbyx(array,0,n-1)
 if dimensi == 3:
     count = 0
     t1 = time.time()

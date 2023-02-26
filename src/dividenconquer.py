@@ -8,7 +8,6 @@ def sortbyx(a,i,j):
         k = partisibyx(a,i,j)
         sortbyx(a,i,k)
         sortbyx(a,k+1,j)
-        return a
 
 def partisibyx(a,i,j):
 # I.S : a terdefinisi
