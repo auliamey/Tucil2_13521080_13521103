@@ -15,6 +15,3 @@ def closestPairBf(arraypoint,npoint,dimensi,count):
                     minPoint1 = arraypoint[i]
                     minPoint2 = arraypoint[j]
     return min,minPoint1,minPoint2,count
-
-   
-

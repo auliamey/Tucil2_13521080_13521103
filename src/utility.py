@@ -1,6 +1,9 @@
 import random
 import math
 
+def color_text(code):
+        return "\33[{code}m".format(code=code)
+
 def randomPoint(npoint,dimensi):
 # mengembalikan array of point dengan jumlah npoint dan dimensi yang sudah ditentukan dan memiliki posisi yang random
     arraypoint = []
