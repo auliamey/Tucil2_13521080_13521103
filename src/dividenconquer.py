@@ -36,6 +36,11 @@ def euclidean(a,b,n):
         return (a[0]-b[0])
     else:
         return math.sqrt(euclidean(a,b,n-1)**2 + (a[n-1]-b[n-1])**2)
+    
+def euclideanCounter(a,b,n,ctr) :
+    # mengembalikan jarak euclidean dan counter yang menghitung banyaknya perhitungan euclidean yang dilakukan
+    ctr += 1
+    return euclidean(a,b,n), ctr
 
 def closestPair(a,n,dimension):
     # mengembalikan jarak terdekat antara 2 titik dalam a dengan dimensi R^n dan pasangan titiknya
@@ -92,11 +97,8 @@ def closestPair(a,n,dimension):
                     p2 = strip[j]
         return nilai,p1,p2
 
-A = [[2,3],[12,30],[40,50],[5,1],[12,10],[1,1]]
+A = [[8,5,7],[9,5,6]]
 sortbyx(A,0,len(A)-1)
-nilai,p,q = closestPair(A,len(A),2)
+nilai,p,q = closestPair(A,len(A),3)
+print(euclidean([8,5,7],[9,5,6],3))
 print(nilai,p,q)
-
-
-
-        
