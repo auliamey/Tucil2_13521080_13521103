@@ -32,3 +32,6 @@ def visualize(arraypoint, minPoint1, minPoint2):
     
     # show plot
     plt.show()
+
+
+    
