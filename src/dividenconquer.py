@@ -1,4 +1,5 @@
-import math
+from utility import *
+
 def sortbyx(a,i,j):
 # I.S : a terdefinisi
 # F.S : a terurut berdasarkan x
@@ -30,30 +31,24 @@ def partisibyx(a,i,j):
             break
     return q
 
-def euclidean(a,b,n):
-# mengembalikan jarak euclidean antara a dan b dengan dimensi R^n
-    if n == 1:
-        return (a[0]-b[0])
-    else:
-        return math.sqrt(euclidean(a,b,n-1)**2 + (a[n-1]-b[n-1])**2)
-    
-def euclideanCounter(a,b,n,ctr) :
-    # mengembalikan jarak euclidean dan counter yang menghitung banyaknya perhitungan euclidean yang dilakukan
-    ctr += 1
-    return euclidean(a,b,n), ctr
-
-def closestPair(a,n,dimension):
+def closestPairDnC(a,n,dimension,count):
     # mengembalikan jarak terdekat antara 2 titik dalam a dengan dimensi R^n dan pasangan titiknya
     if n == 2:
-        return euclidean(a[0],a[1],dimension),a[0],a[1]
+        print("1")
+        count += 1
+        return euclidean(a[0],a[1],dimension),a[0],a[1],count
     elif n == 3:
-        d = min(euclidean(a[0],a[1],dimension),euclidean(a[0],a[2],dimension),euclidean(a[1],a[2],dimension))
-        if d == euclidean(a[0],a[1],dimension):
-            return d,a[0],a[1]
-        elif d == euclidean(a[0],a[2],dimension):
-            return d,a[0],a[2]
+        print("3")
+        count += 3
+        nilai1 = euclidean(a[0],a[1],dimension)
+        nilai2 = euclidean(a[0],a[2],dimension)
+        nilai3 = euclidean(a[1],a[2],dimension)
+        if nilai1 < nilai2 and nilai1 < nilai3:
+            return nilai1,a[0],a[1],count
+        elif nilai2 < nilai1 and nilai2 < nilai3:
+            return nilai2,a[0],a[2],count
         else:
-            return d,a[1],a[2]
+            return nilai3,a[1],a[2],count
     else :
         mid = n//2
         left = a[:mid]
@@ -61,8 +56,9 @@ def closestPair(a,n,dimension):
         # buat ngedebug
         # print(left)
         # print(right)
-        nilai1,p11,p21 = closestPair(left,mid,dimension)
-        nilai2,p221,p22 = closestPair(right,n-mid,dimension)
+        nilai1,p11,p21,count1= closestPair(left,mid,dimension,0)
+        nilai2,p221,p22,count2= closestPair(right,n-mid,dimension,0)
+        count += count1 + count2
         nilai = 0
         p1 = []
         p2 = []
@@ -91,14 +87,13 @@ def closestPair(a,n,dimension):
 
         for i in range(len(strip)):
             for j in range(i+1,len(strip)):
+                print("1")
+                count += 1
                 if euclidean(strip[i],strip[j],dimension) < nilai:
                     nilai = euclidean(strip[i],strip[j],dimension)
                     p1 = strip[i]
                     p2 = strip[j]
-        return nilai,p1,p2
+        
+        return nilai,p1,p2,count
 
-A = [[8,5,7],[9,5,6]]
-sortbyx(A,0,len(A)-1)
-nilai,p,q = closestPair(A,len(A),3)
-print(euclidean([8,5,7],[9,5,6],3))
-print(nilai,p,q)
+
