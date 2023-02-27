@@ -6,7 +6,7 @@ def closestPairBf(arraypoint,npoint,dimensi,count):
     minPoint1 = arraypoint[0]
     minPoint2 = arraypoint[1]
 
-    for i in range(npoint):
+    for i in range(npoint-1):
         for j in range(i+1,npoint):
                 distance = euclidean(arraypoint[i], arraypoint[j], dimensi)
                 count += 1

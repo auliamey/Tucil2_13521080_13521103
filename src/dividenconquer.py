@@ -70,7 +70,8 @@ def closestPairDnC(a,n,dimension,count):
             nilai = nilai2
             p1 = p221
             p2 = p22
-        strip = []
+        stripleft = []
+        stripright = []
         if n%2 == 0:
             mid = (a[mid-1][0]+a[mid][0])/2
             # print(mid)
@@ -78,23 +79,21 @@ def closestPairDnC(a,n,dimension,count):
             mid = a[mid][0]
         for i in left:
             if i[0] >= mid - nilai:
-                strip.append(i)
+                stripleft.append(i)
         for i in right:
             if i[0] <= mid + nilai:
-                strip.append(i)
+                stripright.append(i)
         # buat ngedebug
         # for i in strip:
         #     print(i)
 
-        for i in range(len(strip)):
-            for j in range(i+1,len(strip)):
-                # print("1")
+        for i in stripleft:
+            for j in stripright:
                 count += 1
-                if euclidean(strip[i],strip[j],dimension) < nilai:
-                    nilai = euclidean(strip[i],strip[j],dimension)
-                    p1 = strip[i]
-                    p2 = strip[j]
-        
+                if euclidean(i,j,dimension) < nilai:
+                    nilai = euclidean(i,j,dimension)
+                    p1 = i
+                    p2 = j
         return nilai,p1,p2,count
 
 

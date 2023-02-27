@@ -9,7 +9,7 @@ def main():
     #Proses : main program
     print(color_text(95) + "=============================================================")
     print(color_text(96) + "               CLOSEST PAIR OF POINTS PROGRAM")
-    print(color_text(96) + "                    BY 13521080-13521103")
+    print(color_text(96) + "             BY Fajar (13521080)-Joli (13521103)")
     print(color_text(95) + "=============================================================")
     n = int(input(color_text(34)  +"Masukkan jumlah titik                :   " + color_text(93)))
     dimensi = int(input(color_text(34) + "Masukkan dimensi titik               :   " + color_text(93)))
