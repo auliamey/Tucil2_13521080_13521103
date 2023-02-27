@@ -1,4 +1,3 @@
-# SUMPAH INI COBAEN DULU JAR
 import matplotlib.pyplot as plt
 
 def visualize(arraypoint, minPoint1, minPoint2):
@@ -23,6 +22,8 @@ def visualize(arraypoint, minPoint1, minPoint2):
     ax.scatter3D(arrayX, arrayY, arrayZ, color = "green")
     ax.scatter3D(minPoint1[0], minPoint1[1], minPoint1[2], color = "red")
     ax.scatter3D(minPoint2[0], minPoint2[1], minPoint2[2], color = "blue")
+    ax.text(minPoint1[0], minPoint1[1], minPoint1[2], "{%.2f, %.2f, %.2f}" % (minPoint1[0], minPoint1[1], minPoint1[2]),  size=6, va = "top", ha = "center")
+    ax.text(minPoint2[0], minPoint2[1], minPoint2[2], "{%.2f, %.2f, %.2f}" % (minPoint2[0], minPoint2[1], minPoint2[2]),  size=6, va = "bottom", ha = "center")
     # print(minPoint1)
     # print(minPoint2)
     plt.title("Visualize Points")

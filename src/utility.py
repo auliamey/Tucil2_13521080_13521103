@@ -11,7 +11,7 @@ def randomPoint(npoint,dimensi):
         point = []
         for j in range(dimensi):
             # random sebanyak dimensi, misal 2 (x,y) misal 3 (x,y,z)
-            titik = random.randint(-1000,1000)
+            titik = round(random.uniform(-1000,1000), 2)
             point.append(titik)
         arraypoint.append(point)
     return arraypoint
