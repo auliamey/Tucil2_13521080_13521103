@@ -35,11 +35,11 @@ def closestPairDnC(a,n,dimension,count):
     # mengembalikan jarak terdekat antara 2 titik dalam a dengan dimensi R^n dan pasangan titiknya
     if n == 2:
         # print("1")
-        count += 1
+        count = 1
         return euclidean(a[0],a[1],dimension),a[0],a[1],count
     elif n == 3:
         # print("3")
-        count += 3
+        count = 3
         nilai1 = euclidean(a[0],a[1],dimension)
         nilai2 = euclidean(a[0],a[2],dimension)
         nilai3 = euclidean(a[1],a[2],dimension)
@@ -58,7 +58,7 @@ def closestPairDnC(a,n,dimension,count):
         # print(right)
         nilai1,p11,p21,count1= closestPairDnC(left,mid,dimension,0)
         nilai2,p221,p22,count2= closestPairDnC(right,n-mid,dimension,0)
-        count += count1 + count2
+        count = count1 + count2
         nilai = 0
         p1 = []
         p2 = []
@@ -89,17 +89,28 @@ def closestPairDnC(a,n,dimension,count):
 
         for i in stripleft:
             for j in stripright:
-                count += 1
-                if euclidean(i,j,dimension) < nilai:
-                    nilai = euclidean(i,j,dimension)
-                    p1 = i
-                    p2 = j
+                cek = True
+                for k in range(dimension):
+                    if abs(i[k]-j[k]) > nilai:
+                        cek = False
+                if cek :
+                    count += 1
+                    x = euclidean(i,j,dimension)
+                    if x < nilai:
+                        nilai = x
+                        p1 = i
+                        p2 = j
         return nilai,p1,p2,count
 
 
+# array = randomPoint(1000000,3)
+# # array1 = randomPoint(10,4)
+# # sortbyx(array,0,len(array)-1)
+# # sortbyx(array1,0,len(array1)-1)
+# min,p1,p2,count = closestPairDnC(array,len(array),3,0)
+# # min1,p11,p21,count1 = closestPairDnC(array1,len(array1),4,0)
 
-# array = randomPoint(10,3)
-# min,p1,p2,count = closestPairDnCSorted(array,len(array),3,0)
 # print("Jarak terdekat antara 2 titik dalam array adalah",min,"dengan pasangan titik",p1,"dan",p2)
 # print("Jumlah perhitungan euclidean yang dilakukan adalah",count)
 
+# print(count1)

@@ -22,7 +22,7 @@ def euclidean(a,b,n):
         return (a[0]-b[0])
     else:
         return math.sqrt(euclidean(a,b,n-1)**2 + (a[n-1]-b[n-1])**2)
-    
+
 def euclideanCounter(a,b,n,ctr) :
     # mengembalikan jarak euclidean dan counter yang menghitung banyaknya perhitungan euclidean yang dilakukan
     ctr += 1
