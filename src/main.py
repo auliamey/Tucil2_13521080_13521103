@@ -11,8 +11,36 @@ def main():
     print(color_text(96) + "               CLOSEST PAIR OF POINTS PROGRAM")
     print(color_text(96) + "             BY Fajar (13521080)-Joli (13521103)")
     print(color_text(95) + "=============================================================")
-    n = int(input(color_text(34)  +"Masukkan jumlah titik                :   " + color_text(93)))
-    dimensi = int(input(color_text(34) + "Masukkan dimensi titik               :   " + color_text(93)))
+    n = input(color_text(34)  +"Masukkan jumlah titik                :   " + color_text(93))
+    temp = True
+    for i in range(len(n)) :
+        if ord(n[i]) < 48 or ord(n[i]) > 57 :
+            temp = False
+            break
+    while (temp == False):
+        print(color_text(91) + "Masukkan salah! Masukkan input ulang!")
+        n = input(color_text(34)  +"Masukkan jumlah titik                :   " + color_text(93))
+        temp = True
+        for i in range(len(n)) :
+            if ord(n[i]) < 48 or ord(n[i]) > 57 :
+                temp = False
+                break
+    n = int(n)
+    dimensi = input(color_text(34) + "Masukkan dimensi titik               :   " + color_text(93))
+    temp = True
+    for i in range(len(dimensi)) :
+        if ord(dimensi[i]) < 48 or ord(dimensi[i]) > 57 :
+            temp = False
+            break
+    while (temp == False):
+        print(color_text(91) + "Masukkan salah! Masukkan input ulang!")
+        dimensi = input(color_text(34) + "Masukkan dimensi titik               :   " + color_text(93))
+        temp = True
+        for i in range(len(dimensi)):
+            if ord(dimensi[i]) < 48 or ord(dimensi[i]) > 57 :
+                temp = False
+                break
+    dimensi = int(dimensi)
     print()
     print()
     if n > 0 and dimensi > 0:
@@ -82,23 +110,28 @@ def main():
 
 
 # sek ternyata gabisa balik ya
-# exit = False
+exit = False
 main()
 
-# while not exit :
-#     print("Apakah ingin lanjut program?")
-#     print("1. Ya")
-#     print("2. Tidak")
-#     inputuser = int(input("Masukkan angka : "))
-#     while (inputuser != 1 or inputuser != 2):
-#         print("Masukkan salah! Masukkan input ulang!")
-#         print("Apakah ingin lanjut program?")
-#         print("1. Ya")
-#         print("2. Tidak")
-#         inputuser = int(input("Masukkan angka : "))
+while not exit :
+    print(color_text(95) + "Apakah ingin lanjut program?")
+    print("1. Ya")
+    print("2. Tidak")
+    inputuser = input("Masukkan angka : ")
+    while (inputuser != "1" and inputuser != "2"):
+        print(color_text(91) + "Masukkan salah! Masukkan input ulang!")
+        print(color_text(95) + "Apakah ingin lanjut program?")
+        print("1. Ya")
+        print("2. Tidak")
+        inputuser = input("Masukkan angka : ")
+            
+        
+    inputuser = int(inputuser)
+        
     
-#     if (inputuser == 1):
-#         main()
-#     else :
-#         exit = True
+    if (inputuser == 1):
+        main()
+    else :
+        print(color_text(93) + "goodbye sisturrr")
+        exit = True
     
