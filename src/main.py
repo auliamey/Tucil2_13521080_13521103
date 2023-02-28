@@ -49,6 +49,19 @@ def main():
         if dimensi == 3:
             count = 0
             t1 = time.time()
+            min,minPoint1,minPoint2,count = closestPairDnC(array,n,dimensi,count)
+            t2 = time.time()
+            print(color_text(95) + "=============================================================")
+            print(color_text(91) + "             PENDEKATAN SECARA DIVIDE CONQUER")
+            print(color_text(95) + "=============================================================")
+            print(color_text(34) + "Jarak terdekat antara 2 titik adalah : ",color_text(93),min)
+            print(color_text(34) + "Titik pertama                        : ",color_text(93),minPoint1)
+            print(color_text(34) + "Titik kedua                          : ",color_text(93),minPoint2)
+            print(color_text(34) + "Jumlah perhitungan                   : ",color_text(93),count)
+            print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
+            
+            count = 0
+            t1 = time.time()
             min,minPoint1,minPoint2,count =closestPairBf(array,n,dimensi,count)
             t2 = time.time()
             print(color_text(95) + "=============================================================")
@@ -61,24 +74,25 @@ def main():
             print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
             print()
             
-            count = 0
-            t1 = time.time()
-            min,minPoint1,minPoint2,count = closestPairDnC(array,n,dimensi,count)
-            t2 = time.time()
-            print(color_text(95) + "=============================================================")
-            print(color_text(91) + "             PENDEKATAN SECARA DIVIDE CONQUER")
-            print(color_text(95) + "=============================================================")
-            print(color_text(34) + "Jarak terdekat antara 2 titik adalah : ",color_text(93),min)
-            print(color_text(34) + "Titik pertama                        : ",color_text(93),minPoint1)
-            print(color_text(34) + "Titik kedua                          : ",color_text(93),minPoint2)
-            print(color_text(34) + "Jumlah perhitungan                   : ",color_text(93),count)
-            print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
             
 
             visualize(array,minPoint1,minPoint2)
         elif dimensi>0 and dimensi != 3:
             count = 0
             t1 = time.time()
+            min,minPoint1,minPoint2,count = closestPairDnC(array,n,dimensi,count)
+            t2 = time.time()
+            print(color_text(95) + "=============================================================")
+            print(color_text(91) + "             PENDEKATAN SECARA DIVIDE CONQUER")
+            print(color_text(95) + "=============================================================")
+            print(color_text(34) + "Jarak terdekat antara 2 titik adalah : ",color_text(93),min)
+            print(color_text(34) + "Titik pertama                        : ",color_text(93),minPoint1)
+            print(color_text(34) + "Titik kedua                          : ",color_text(93),minPoint2)
+            print(color_text(34) + "Jumlah perhitungan                   : ",color_text(93),count)
+            print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
+
+            count = 0
+            t1 = time.time()
             min,minPoint1,minPoint2,count =closestPairBf(array,n,dimensi,count)
             t2 = time.time()
             print(color_text(95) + "=============================================================")
@@ -91,18 +105,6 @@ def main():
             print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
             print()
 
-            count = 0
-            t1 = time.time()
-            min,minPoint1,minPoint2,count = closestPairDnC(array,n,dimensi,count)
-            t2 = time.time()
-            print(color_text(95) + "=============================================================")
-            print(color_text(91) + "             PENDEKATAN SECARA DIVIDE CONQUER")
-            print(color_text(95) + "=============================================================")
-            print(color_text(34) + "Jarak terdekat antara 2 titik adalah : ",color_text(93),min)
-            print(color_text(34) + "Titik pertama                        : ",color_text(93),minPoint1)
-            print(color_text(34) + "Titik kedua                          : ",color_text(93),minPoint2)
-            print(color_text(34) + "Jumlah perhitungan                   : ",color_text(93),count)
-            print(color_text(34) + "Waktu eksekusi                       : ",color_text(93),t2-t1)
         else: 
             print("Dimensi tidak valid")
     else:
