@@ -30,8 +30,8 @@ Oleh karena itu, kami membuat program pencari titik terdekat dalam 3D dengan mel
 </p>
 
 ## Requirements
-> python3
-> matplotlib
+- python3
+- matplotlib
 
 ## Usage
 - If you're using Windows, Run **python3 src/main.py** on your terminal.
