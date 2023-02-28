@@ -13,23 +13,23 @@ def partisibyx(a,i,j):
 # I.S : a terdefinisi
 # F.S : a terurut berdasarkan x
 # Proses : mengurutkan a berdasarkan x dengan menggunakan algoritma divide and conquer
-    x = a[(i+j)//2][0]
+    pivot = a[(i+j)//2]
     p = i
     q = j
     while True:
-        while(a[p][0] < x):
-            p = p + 1
-        while(a[q][0] > x):
-            q = q - 1
+        while a[p][0] < pivot[0] :
+            p += 1
+        while a[q][0] > pivot[0] :
+            q -= 1
         if p < q :
             temp = a[p]
             a[p] = a[q]
             a[q] = temp
-            p = p+1
-            q = q-1
-        if p>=q :
-            break
-    return q
+            p += 1
+            q -= 1
+        else:
+            return q
+
 
 def closestPairDnC(a,n,dimension,count):
     # mengembalikan jarak terdekat antara 2 titik dalam a dengan dimensi R^n dan pasangan titiknya
@@ -77,6 +77,9 @@ def closestPairDnC(a,n,dimension,count):
             # print(mid)
         else :
             mid = a[mid][0]
+        #left most
+        l = left[-1]
+        r = right[0]
         for i in left:
             if i[0] >= mid - nilai:
                 stripleft.append(i)
@@ -91,7 +94,7 @@ def closestPairDnC(a,n,dimension,count):
             for j in stripright:
                 cek = True
                 for k in range(dimension):
-                    if abs(i[k]-j[k]) > nilai:
+                    if abs(i[k]-j[k]) >= nilai:
                         cek = False
                 if cek :
                     count += 1
@@ -103,12 +106,13 @@ def closestPairDnC(a,n,dimension,count):
         return nilai,p1,p2,count
 
 
-# array = randomPoint(1000000,3)
-# # array1 = randomPoint(10,4)
-# # sortbyx(array,0,len(array)-1)
-# # sortbyx(array1,0,len(array1)-1)
+# array1 = randomPoint(10,4)
+# points = randomPoint(100,4)
+# sortbyx(points,0,len(points)-1)
+# print(points)
+# sortbyx(array1,0,len(array1)-1)
 # min,p1,p2,count = closestPairDnC(array,len(array),3,0)
-# # min1,p11,p21,count1 = closestPairDnC(array1,len(array1),4,0)
+# min1,p11,p21,count1 = closestPairDnC(array1,len(array1),4,0)
 
 # print("Jarak terdekat antara 2 titik dalam array adalah",min,"dengan pasangan titik",p1,"dan",p2)
 # print("Jumlah perhitungan euclidean yang dilakukan adalah",count)
