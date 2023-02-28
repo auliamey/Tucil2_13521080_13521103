@@ -77,14 +77,11 @@ def closestPairDnC(a,n,dimension,count):
             # print(mid)
         else :
             mid = a[mid][0]
-        #left most
-        l = left[-1]
-        r = right[0]
         for i in left:
-            if i[0] >= mid - nilai:
+            if i[0] > mid - nilai:
                 stripleft.append(i)
         for i in right:
-            if i[0] <= mid + nilai:
+            if i[0] < mid + nilai:
                 stripright.append(i)
         # buat ngedebug
         # for i in strip:
@@ -111,7 +108,10 @@ def closestPairDnC(a,n,dimension,count):
 # sortbyx(points,0,len(points)-1)
 # print(points)
 # sortbyx(array1,0,len(array1)-1)
-# min,p1,p2,count = closestPairDnC(array,len(array),3,0)
+# array = [[-2],[14],[-5],[-1],[0]]
+# sortbyx(array,0,len(array)-1)
+# print(array)
+# min,p1,p2,count = closestPairDnC(array,len(array),2,0)
 # min1,p11,p21,count1 = closestPairDnC(array1,len(array1),4,0)
 
 # print("Jarak terdekat antara 2 titik dalam array adalah",min,"dengan pasangan titik",p1,"dan",p2)
